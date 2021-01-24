@@ -1,25 +1,33 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
 
-function App() {
+import HelloWorld from "./components/HelloWorld/HelloWorld";
+import Title from "./components/Title/Title";
+import ButtonCustom from "./components/ButtonCustom/ButtonCustom";
+
+const App = () => {
+  const couleur = "red";
+
+  const handleOnClick = (event) => {
+    event.preventDefault();
+    alert("bonjour");
+  };
+
+  const afficheCouleur = () => {
+    console.log(`La couleur de app est ${couleur}`);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  <div>
+    <Title />
+    <HelloWorld name="John Wick" age="20"/>
+    <ButtonCustom 
+      handleOnClick={handleOnClick}  
+      couleurParent={afficheCouleur}
+    />
+  </div>
+  ) 
 }
+
 
 export default App;
